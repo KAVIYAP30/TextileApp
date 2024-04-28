@@ -28,24 +28,12 @@ app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/upload', uploadRouter);
 
-//static files
-// Define the absolute directory path to the client build directory
-const clientBuildPath = new URL("./client/build", import.meta.url).pathname;
-
 // Serve static files from the client build directory
-app.use(express.static(clientBuildPath));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-// Route handler for all other requests, serving index.html
+// Route all other requests to the client's index.html
 app.get('*', function(req, res) {
-  res.sendFile(path.join(clientBuildPath, "index.html"));
-})
-
-const publicFolder = path.join(__dirname, 'public');
-app.use(express.static(publicFolder));
-
-app.get('*', (req, res) => {
-  const indexFilePath = path.join(publicFolder, 'index.html');
-  res.sendFile(indexFilePath);
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
