@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: ['https://textileapp-2.onrender.com/'],
+    origin: ['http://localhost:3000'],
   })
 );
 
