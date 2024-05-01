@@ -72,7 +72,7 @@ export default function PaymentPage() {
 
   async function placeOrderHandler(){
     try{
-      const {data}=await Axios.post('http://localhost:5000/api/orders/orders', 
+      const {data}=await Axios.post('https://textileapp-2.onrender.com//api/orders/orders', 
         {
           amount: order.totalPrice,
         });
