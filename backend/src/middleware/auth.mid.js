@@ -1,4 +1,7 @@
-import { verify } from 'jsonwebtoken';
+// auth.mid.js
+const jwt = require('jsonwebtoken');
+const verify = jwt.verify;
+
 import { UNAUTHORIZED } from '../constants/httpStatus.js';
 
 export default (req, res, next) => {
