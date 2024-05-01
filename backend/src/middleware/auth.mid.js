@@ -1,4 +1,8 @@
 // auth.mid.js
+// auth.mid.js
+import jwt from 'jsonwebtoken';
+
+
 const jwt = require('jsonwebtoken');
 const verify = jwt.verify;
 
